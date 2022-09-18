@@ -1,0 +1,1717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-09-18 Sun 22:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ED survival kit</title>
+<meta name="author" content="Christopher Chen" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function() {
+document.getElementById("table-of-contents").onclick = function() {
+var elem = document.getElementById("text-table-of-contents");
+elem.style.display = elem.style.display == "block" ? "none" : "block";
+}
+});
+
+var url = document.location.href;
+var orgsource = url.substring(0, url.lastIndexOf("."))+".org.html";
+function show_org_source(){
+document.location.href = orgsource;
+}
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">ED survival kit</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org05064f6">1. General routines</a>
+<ul>
+<li><a href="#org2e14006">1.1. Being the ED intern</a></li>
+<li><a href="#org1d3a7db">1.2. Picking up patients</a></li>
+<li><a href="#orged552b7">1.3. Case presentations</a>
+<ul>
+<li><a href="#org138276c">1.3.1. EM doctors think a bit differently</a></li>
+<li><a href="#org394bc23">1.3.2. Knowing that, how should you structure your verbal presentation?</a></li>
+<li><a href="#orgbc7c377">1.3.3. General tips</a></li>
+<li><a href="#org586aa6d">1.3.4. Consults</a></li>
+</ul>
+</li>
+<li><a href="#org5316ea9">1.4. Being keen</a></li>
+<li><a href="#org6f29b7b">1.5. Cautions</a></li>
+</ul>
+</li>
+<li><a href="#org4db4d63">2. Common complaints</a>
+<ul>
+<li><a href="#orge653ba3">2.1. Chest pain, dyspnoea and haemoptysis</a>
+<ul>
+<li><a href="#org026ba0e">2.1.1. Chest pain</a></li>
+<li><a href="#org501af65">2.1.2. Dyspnoea</a></li>
+<li><a href="#org36d1770">2.1.3. Haemoptysis</a></li>
+<li><a href="#org74048d7">2.1.4. Acute pulmonary oedema (i.e. acute decompensation of heart failure)</a></li>
+<li><a href="#org7402c9d">2.1.5. Venous thromboembolism (i.e. DVT/PE)</a></li>
+</ul>
+</li>
+<li><a href="#org60bfa72">2.2. Abdominal pain and GI emergencies</a>
+<ul>
+<li><a href="#orga381352">2.2.1. Acute abdomen</a></li>
+</ul>
+</li>
+<li><a href="#org38d52d6">2.3. Back pain</a></li>
+<li><a href="#org050b548">2.4. Fractures</a>
+<ul>
+<li><a href="#org0bf4b85">2.4.1. General principles</a></li>
+<li><a href="#org4ec06d4">2.4.2. UL</a></li>
+<li><a href="#org438ab77">2.4.3. Pelvis</a></li>
+<li><a href="#org177a60f">2.4.4. LL</a></li>
+</ul>
+</li>
+<li><a href="#org1701831">2.5. Pain management in the ED</a></li>
+</ul>
+</li>
+<li><a href="#orgd027ffe">3. Reading list</a></li>
+</ul>
+</div>
+</div>
+<p>
+This is going to be much longer and more complicated than my other &ldquo;survival kit&rdquo; pages because - god help me - there is <i>a lot</i> to learn.
+</p>
+
+<p>
+Most of this comes from the Fulde book because that&rsquo;s where our consultants have a book chapter. It&rsquo;s not good as a source for general knowledge and isn&rsquo;t really enough most of the time; for that I&rsquo;d recommend the USMLE Step 2 resources like UWorld and AMBOSS, which my RemNote pages are based off. As far as &ldquo;red flags&rdquo; go, they&rsquo;ll have you covered too but the hospital protocols and ACI website are more local so those should be your first port of call.
+</p>
+
+<div id="outline-container-org05064f6" class="outline-2">
+<h2 id="org05064f6"><span class="section-number-2">1.</span> General routines</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org2e14006" class="outline-3">
+<h3 id="org2e14006"><span class="section-number-3">1.1.</span> Being the ED intern</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Every doctor has their own opinion. As far as medical practice goes it&rsquo;s just &ldquo;do what the boss says&rdquo;; the extent of this is worse than in e.g. IM, surg
+<ul class="org-ul">
+<li>It&rsquo;s &ldquo;always on&rdquo;; so no prolonged rest breaks, no hiding in the bathroom, no using idle time to study. Go and help someone else with their jobs or something</li>
+<li>You have no meaningful autonomy! Doing things &ldquo;your own way&rdquo; is a no go</li>
+<li>So much of medicine feels like &ldquo;medical theatre&rdquo; in the same sense that the TSA checks at the airport are &ldquo;security theatre&rdquo;. It&rsquo;s to give the illusion of safety when in fact much of what we do is stupid or useless
+<ul class="org-ul">
+<li>When I was in WWBH the COVID precaution measures were obviously useless; iso rooms next to non-iso rooms, no cordoned-off doffing areas, no negative pressure areas, etc.</li>
+<li>Just look up the LRs for the vast majority of clinical signs, most don&rsquo;t even break a factor of 10. However, radical changes to practice would likely not be accepted by practitioners or patients so we&rsquo;re kind of stuck with what we have for now (cf. &ldquo;user acceptance testing&rdquo;)</li>
+</ul></li>
+</ul></li>
+<li>Noting the above, good relationships are paramount. In order to secure this, at least do the following
+<ul class="org-ul">
+<li>Introduce yourself to basically everyone you will need to work with on some level.</li>
+<li>I have cripplingly bad social anxiety which I need to take medication for and has caused me a lot of professional problems, so to make life easier for my fellow introverts, I&rsquo;ve ranked these introductions in order of importance based on how often or likely it is you&rsquo;ll need to talk to them
+<ol class="org-ol">
+<li>Your attending/consultant</li>
+<li>Registrars</li>
+<li>Nurses</li>
+<li>Colleagues (i.e. other junior doctors)</li>
+<li>Ward clerk</li>
+<li>Allied health (i.e. PT, SW, pharmacist)</li>
+</ol></li>
+<li>Make sure you ask any staff you need to directly report to how they like to be worked with so you don&rsquo;t step on any toes
+<ul class="org-ul">
+<li>If they don&rsquo;t elaborate try to ask them a closed question about stuff you feel unclear about. The worst possible scenario is that something you do wrong comes back to bite you later</li>
+<li>You should have had an orientation to the ED, especially if you haven&rsquo;t worked there before</li>
+</ul></li>
+<li>Going somewhere?
+<ul class="org-ul">
+<li>Tell your immediate superior</li>
+<li>If you can&rsquo;t reach them tell the OPNUM</li>
+<li>Tell someone else if that doesn&rsquo;t work. Think about who your immediate superior would ask</li>
+</ul></li>
+<li>At least at StV&rsquo;s they&rsquo;ll have a phone directory for you to get in touch with the staff. If not try to ask for contacts</li>
+<li>Help out your peers, they might help you back. We&rsquo;re all a team here!
+<ul class="org-ul">
+<li>If you&rsquo;re in your last hour and don&rsquo;t want to pick up another patient, then help out with odd jobs</li>
+</ul></li>
+</ul></li>
+<li>With regards to routine, consider the following issues
+<ul class="org-ul">
+<li>Handover
+<ul class="org-ul">
+<li>Day to evening - you&rsquo;ll need to communicate why they&rsquo;re here and what&rsquo;s been done thus far</li>
+<li>Ideally try to prepare as much of it before you go so they don&rsquo;t do it wrong (transmission loss is a real thing)</li>
+</ul></li>
+<li>Breaks and debriefing
+<ul class="org-ul">
+<li>Because of the always-on nature of the ED it can be difficult to time your break. Try these times:
+<ul class="org-ul">
+<li>When the new staff are coming in</li>
+<li>When waiting for results to return</li>
+</ul></li>
+<li>If you have a worrying patient, can you stay somewhere closer to the patient area?</li>
+<li>If you have challenging, emotional or confronting times, don&rsquo;t be afraid to let your superior know and ask for a short break to compose yourself. Generally speaking they can be quite understanding.
+<ul class="org-ul">
+<li>It&rsquo;s also stressed that you should talk about it with someone, get it off your chest, find commonality in others&rsquo; experiences, etc.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Getting pimped
+<ul class="org-ul">
+<li>You may be asked random knowledge questions fairly often. Again, it&rsquo;s okay to not know, but it&rsquo;s best if you CAN answer</li>
+<li>One thing I&rsquo;ve noticed a lot is that their idea of making it &ldquo;not that easy&rdquo; is to make the question extremely open-ended.
+<ul class="org-ul">
+<li>A question I get a lot of that I hate is &ldquo;what are the red flags for X?&rdquo;. I shudder to think that anyone actually reasons using &ldquo;listicles&rdquo; like this instead of using logic i.e. thinking about &ldquo;lethal endpoints&rdquo; and reasoning &ldquo;red flags&rdquo; backwards from them, but unfortunately it seems a lot of people actually do learn without understanding in medicine simply because of how fast we are bombarded with content. So if you have cognitive differences like ADHD or autism (even if it&rsquo;s relatively minor), or you just aren&rsquo;t a &ldquo;memorising lists&rdquo; type of person, prepare to die!</li>
+</ul></li>
+</ul></li>
+<li>Get regular feedback from your superiors!
+<ul class="org-ul">
+<li>How are you doing? Is there anything you can do differently?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1d3a7db" class="outline-3">
+<h3 id="org1d3a7db"><span class="section-number-3">1.2.</span> Picking up patients</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>As an intern (or even a resident) you&rsquo;ll generally pick up and see category 3-5 patients. Anything higher warrants discussion with the reg or consultant you&rsquo;re working with
+<ul class="org-ul">
+<li>If you&rsquo;re unsure you should ask your superior who they&rsquo;d like you to pick up; otherwise, just pick whoever&rsquo;s next up</li>
+<li>Start by doing the initial workup then reporting back to your superior
+<ul class="org-ul">
+<li>Aim to formulate DDx and potential management BEFORE you talk to them</li>
+<li>As you progress through you can initiate more ix/mx independently BUT ALWAYS RUN THE PATIENT BY YOUR SENIOR</li>
+<li>Talk earlier if you&rsquo;re more unsure or if they&rsquo;re sicker/deteriorating
+<ul class="org-ul">
+<li>And in some special cases e.g. paeds</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Running through it
+<ol class="org-ol">
+<li>Patient assessment
+<ul class="org-ul">
+<li>Start by looking at the information on the triage sheet i.e. initial history, vitals
+<ul class="org-ul">
+<li>Use this to brainstorm potential differentials, what further information you need to &ldquo;sieve&rdquo; the patient&rsquo;s case into something more definitively manageable</li>
+</ul></li>
+<li>Consider potential issues with (can d/w triage nurse, NIC)
+<ul class="org-ul">
+<li>Monitoring (cardiac, etc.)</li>
+<li>Violence/absconding (psychiatric and behavioural risk matrix)</li>
+<li>Mobility</li>
+<li>Ward admission/a hospital bed</li>
+<li>Invasive examinations or investigations (e.g. PR exam for PR bleeds)</li>
+<li>Special equipment e.g. slit lamp examination</li>
+</ul></li>
+<li>Note that assessment and management is often simultaneous so some initial stabilisation would perhaps precede the history</li>
+<li>Also be mindful of collateral sources. Get onto these early because the requests will take time to fulfil
+<ul class="org-ul">
+<li>Old notes</li>
+<li>Notes from other hospitals</li>
+<li>Referral letters</li>
+<li>Next-of-kin (family and friends)</li>
+</ul></li>
+<li>If you&rsquo;re ever worried, don&rsquo;t hesitate to ask your superior, they expect you to know your limitations and to come to them for help</li>
+</ul></li>
+<li>Investigations
+<ul class="org-ul">
+<li>Most people need bloods, and potentially IVs thereafter, so start with a 20g PIVC and draw bloods thence
+<ul class="org-ul">
+<li>Get the full rainbow at the outset to save yourself from later headaches with the path lab</li>
+</ul></li>
+<li>Similarly, with imaging, try to order it all at the outset so they only need to get wheeled there once</li>
+<li>Any more extensive or potentially difficult investigation (i.e. not XRs, bloods, or simple bedside tests like ECG, spiro, urinalysis) should really be discussed with a senior</li>
+<li>Chase all your own results and discuss them with your senior</li>
+</ul></li>
+<li>Discussion
+<ul class="org-ul">
+<li>Once the history and exam are done, run over it with your senior (earlier if worried, even if incomplete)
+<ul class="org-ul">
+<li>The aim here is to come to an agreed working diagnosis or problem list and management plan</li>
+</ul></li>
+<li>Communication tips
+<ul class="org-ul">
+<li>Be succinct (elaborated on under <a href="#orged552b7">Case presentations</a>)</li>
+<li>Start with an executive summary of the case and your thoughts on disposition and management to help signpost (e.g. &ldquo;I just saw a 49yo man w/ intermediate-risk chest pain who I think requires admission for stress testing and monitoring&rdquo;)</li>
+<li>Make sure you know their vitals before starting and that you include what has already been done for the pt</li>
+<li>Try to finish your presentation with how you&rsquo;d like to manage the situation. Ask if anything else needs to be done or if you&rsquo;ve left anything out.</li>
+<li>If you&rsquo;re <i>really concerned</i>, do not hesitate to ask for senior review</li>
+</ul></li>
+<li>Always remember, <b>safety first</b>!
+<ul class="org-ul">
+<li>If the senior doctor asks you something you don&rsquo;t know or forgot to ask, <i>never pretend to know the answer or make something up</i>
+<ol class="org-ol">
+<li>They can usually tell</li>
+<li>This gives a false impression of the patient&rsquo;s status and can change management</li>
+</ol></li>
+<li>It&rsquo;s fine not to know things, after all, you&rsquo;re an intern ffs
+<ul class="org-ul">
+<li>Though it can look bad if you don&rsquo;t know things that&rsquo;d be expected of your level&#x2026;</li>
+<li>This is hard because you&rsquo;re going to get marked on this and some things you&rsquo;re &ldquo;expected&rdquo; to know may not at first seem obvious. Doctors also tend to be highly opinionated people so it can feel very difficult to navigate.</li>
+<li>What I find helps in times like these is a <a href="https://en.wikipedia.org/wiki/Noble_Eightfold_Path#Right_mindfulness">Buddha-like mindset</a>, or <i>sati</i>. In more common parlance, it&rsquo;s basically saying &ldquo;it is what it is&rdquo; to yourself as a reassurance. Actively taking the time to practice <i>vipassana</i> helps greatly.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Further referral
+<ul class="org-ul">
+<li>By now you should have a clear plan of action for the patient. Make sure you keep monitoring them and chasing any outstanding investigations</li>
+<li>Depending on their disposition
+<dl class="org-dl">
+<dt>Likely discharge</dt><dd>start discharge planning
+<ul class="org-ul">
+<li>Always requires clearance from a senior doctor!</li>
+<li>Includes things like AH involvement, letters, scripts, f/u&rsquo;s, referrals</li>
+<li>Transport? How will they get back to their regular place of living?
+<ul class="org-ul">
+<li>Home vs NH etc.</li>
+<li>Need for HITH</li>
+</ul></li>
+</ul></dd>
+<dt>Likely admission</dt><dd>start referral to relevant team
+<ul class="org-ul">
+<li>Try to ensure all the information <i>they&rsquo;ll</i> need is on hand
+<ul class="org-ul">
+<li>You may not need to wait for everything, but all the important stuff should be there</li>
+</ul></li>
+<li>Don&rsquo;t be rattled if you are asked questions or met with skepticism
+<ul class="org-ul">
+<li>This is quite common for inpatient teams when it comes to referrals from the ED. In hospitals, everyone is overworked and trying their best not to get too much caseload</li>
+</ul></li>
+<li>Recall ISBAR. Again, more info under <a href="#orged552b7">Case presentations</a></li>
+<li>In some cases you might need to refer a patient upfront before any principal diagnosis is reached. Don&rsquo;t be afraid to be upfront about this in your referral, as long as you can explain why you think their involvement is warranted <b>now</b>
+<ul class="org-ul">
+<li>e.g. 30M pres w/ LLQ pain. ?cause, requiring ongoing morphine, concern re (potential dx), ?need for med/surg opinion -&gt; ?admission for further ix/mx</li>
+</ul></li>
+<li>Always document any input from the referring team and arrange anything they request</li>
+<li>Now, if they are going to the ward
+<ul class="org-ul">
+<li>Chart meds
+<ul class="org-ul">
+<li>Any required substitutions? e.g. IV morphine can&rsquo;t be given on the ward</li>
+</ul></li>
+<li>When are they next likely to be reviewed? Is everything they need set up for until then?
+<ul class="org-ul">
+<li>e.g. PIVC for IV fluids</li>
+</ul></li>
+<li>Any necessary testing is arranged and time-critical stuff handed over to the ward resident e.g. serial troponins</li>
+<li>If the registrar has not already done so, call the ward NIC and tell them this ED pt needs a bed</li>
+</ul></li>
+</ul></dd>
+</dl></li>
+</ul></li>
+<li>Patients and patience
+<ul class="org-ul">
+<li>Be patient with your patients and try to keep them updated. After all, a hospital is a demanding, stressful and unfamiliar environment to be in. Keeping them calm and informed improves outcomes!</li>
+</ul></li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orged552b7" class="outline-3">
+<h3 id="orged552b7"><span class="section-number-3">1.3.</span> Case presentations</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Everything in the ED is rushed and under time pressure so handovers warrant a slightly different approach to the ward
+<ul class="org-ul">
+<li>Literally everyone has heard of ISBAR. While this suffices as a basic structural skeleton it doesn&rsquo;t by itself really give you a good way to organise and prune your information in this sort of ultra-time-critical environment</li>
+<li>In that light, your presentations should be concise and focused</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org138276c" class="outline-4">
+<h4 id="org138276c"><span class="section-number-4">1.3.1.</span> <a href="https://youtube.com/watch?v=cq1hK5soou8">EM doctors think a bit differently</a></h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li>Differences from the ward
+<ul class="org-ul">
+<li>You don&rsquo;t get someone with known medical diagnoses, you&rsquo;re managing someone who&rsquo;s come in with undifferentiated symptoms</li>
+<li>Average patient case acuity is higher</li>
+<li>Time is more limited</li>
+<li>Lots of patients are being managed at once</li>
+<li>There are lots of distractions</li>
+</ul></li>
+<li>The patient needs to be directed somewhat to give the history</li>
+<li>Cardinal rule of ED: assume everyone will either <b>die</b> or <b>lose a limb/some important organ</b>
+<ul class="org-ul">
+<li>Therefore, think of diagnoses that will kill (in either nn, hh or dd) REGARDLESS of the PC</li>
+</ul></li>
+<li><p>
+Your diagnosis matrix should look something like this
+</p>
+<table id="orgf29bcac" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Flipped EM: Diagnostic matrix structure</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Likely</td>
+<td class="org-left"><b>Deadly</b></td>
+</tr>
+
+<tr>
+<td class="org-left">Test</td>
+<td class="org-left">Treat</td>
+</tr>
+</tbody>
+</table></li>
+<li>You fill out the lists in the top row and decide what to do for testing and treatment</li>
+<li>Mission: fill the <b>deadly</b> box!
+<ul class="org-ul">
+<li>They don&rsquo;t necessarily need to be likely but you need to fill them!</li>
+</ul></li>
+<li><p>
+Worked example: 24f SOB
+</p>
+<table id="orge28c470" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> Diagnostic matrix structure filled in for a 24F with SOB</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">(likely)</td>
+<td class="org-left">PE, PTX, MI, CHF, pericardial tamponade, pericarditis, asthma, pneumonia, anaphylaxis</td>
+</tr>
+
+<tr>
+<td class="org-left">(test)</td>
+<td class="org-left">(treat)</td>
+</tr>
+</tbody>
+</table></li>
+<li>Questioning should then proceed to ensure all of the deadly things have been covered
+<ul class="org-ul">
+<li>Your aim is to rule all of these out</li>
+</ul></li>
+<li>If there&rsquo;s a secondary complaint, include that in your matrix
+<ul class="org-ul">
+<li>If it&rsquo;s not obviously linked (e.g. eye pain), you may need to create a separate list</li>
+<li>Recall Occam&rsquo;s razor</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org394bc23" class="outline-4">
+<h4 id="org394bc23"><span class="section-number-4">1.3.2.</span> <a href="https://youtube.com/watch?v=zenQGVntkGU">Knowing that, how should you structure your verbal presentation?</a></h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ol class="org-ol">
+<li>HPI (i.e. no separate bits for PMHx, FHx, etc.)
+<ol class="org-ol">
+<li>CC</li>
+<li>1-liner (ASB: age, sex, background)
+<ul class="org-ul">
+<li>What background might be relevant to their coming here today?
+<ul class="org-ul">
+<li>e.g. 80F, chest pain. Suppose this is her PMHx: hysterectomy, UTI, <b>DM</b>, gout, <b>3xcabg</b>, cataracts
+<ul class="org-ul">
+<li>&ldquo;This is an 80 year old woman who has presented with chest pain on a background of diabetes and 3xCABG&rdquo;</li>
+</ul></li>
+<li>What if she came with dysuria and fever?
+<ul class="org-ul">
+<li>You&rsquo;d mention the UTI and DM.</li>
+<li>Urate stones are a possibility but they&rsquo;re not the first thing you&rsquo;d bring up because not everyone with gout gets UTIs or stones</li>
+</ul></li>
+<li>It may also help to mention what they take if it could relate to the CC
+<ul class="org-ul">
+<li>The EMRA video gives the example of &ldquo;diabetic man who came in unconscious with low BSL&rdquo;. Then you can mention in the 1-liner what meds he takes for diabetes e.g. &ldquo;diabetic man on sulfonylurea&rdquo;</li>
+<li>The other example was &ldquo;lip swelling&rdquo;. The guy happened to be taking ACEIs for HTN so you could pull that in too</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Everything wrong
+<ul class="org-ul">
+<li>If it&rsquo;s pain, SOCRATES it</li>
+<li>Pertinent positives and negatives
+<ul class="org-ul">
+<li>This is where you&rsquo;d talk about all the things that rule in or out the killers</li>
+<li>You could enumerate features or &ldquo;red flags&rdquo; for each deadly diagnosis until the deadly box is exhausted</li>
+<li>This can also be integrated into the description of the main complaint.
+<ul class="org-ul">
+<li>The <a href="https://youtube.com/watch?v=ztqn5Br44UQ">EMRA video</a> talks about organising your presentation around grouped clinical findings suggestive or refutative of an underlying diagnostic picture to make it feel more streamlined</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Why today of all times?
+<ul class="org-ul">
+<li>Acutely worsened or new symptoms, esp in chronic conditions</li>
+</ul></li>
+<li>How long has the CC been a problem for?</li>
+<li>Progression of illness (i.e. what else has the patient done for this so far?)
+<ul class="org-ul">
+<li>Saw MD</li>
+<li>Tests</li>
+<li>Meds</li>
+</ul></li>
+<li>ROS for miscellany that doesn&rsquo;t fit in to the &ldquo;big picture&rdquo;</li>
+</ol></li>
+<li>Exam
+<ul class="org-ul">
+<li>Vitals (T, BP, HR, RR, SpO2)
+<ul class="org-ul">
+<li>Always comment on abnormal signs; or if they&rsquo;re not worth commenting on just say &ldquo;unremarkable&rdquo;</li>
+</ul></li>
+<li>Pertinent physical findings
+<ul class="org-ul">
+<li>You should always start by describing their general appearance (i.e. &ldquo;well&rdquo; or not)</li>
+<li>Use the CC and the DDx to decide what is or isn&rsquo;t pertinent to present</li>
+<li>After this you may comment on investigations as well if any are back, but again, only if they influence your decision-making</li>
+</ul></li>
+</ul></li>
+<li>Summary
+<ul class="org-ul">
+<li>Components</li>
+<li>Setup (another 1-liner basically, you&rsquo;d restate some of the things from the initial 1-liner here to show you are &ldquo;integrating&rdquo; it all)
+<ul class="org-ul">
+<li>e.g. prior CABG, CP today identical to previous angina</li>
+<li>e.g. rolled ankle</li>
+</ul></li>
+<li>Clincher (findings from exam or ix that strengthen your hypothesis)
+<ul class="org-ul">
+<li>e.g. ST elevations suggestive of ACS</li>
+<li>e.g. lat mal fracture on XR</li>
+</ul></li>
+</ul></li>
+<li>Impression
+<ul class="org-ul">
+<li>What do you think it is?</li>
+</ul></li>
+<li>Plan (these are the lower rows on the matrix)
+<ul class="org-ul">
+<li>Test
+<ul class="org-ul">
+<li>Bloods</li>
+<li>Imaging</li>
+</ul></li>
+<li>Treat
+<ul class="org-ul">
+<li>Specific: casts, blood work, XR, etc.</li>
+<li>Supportive: antipyretics, IV fluids, etc.</li>
+</ul></li>
+<li>Disposition (discharge vs admit)</li>
+</ul></li>
+<li>Each attending might have different individual preferences on how you present, but this is at least a good starting point if nothing else</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgbc7c377" class="outline-4">
+<h4 id="orgbc7c377"><span class="section-number-4">1.3.3.</span> <a href="https://youtube.com/watch?v=ztqn5Br44UQ">General tips</a></h4>
+<div class="outline-text-4" id="text-1-3-3">
+<ul class="org-ul">
+<li>Your presentation should flow like a story: beginning, middle and end
+<ul class="org-ul">
+<li>The beginning is the one-liner</li>
+<li>The middle is the HPI, ex</li>
+<li>The end is your summary, impression and plan</li>
+</ul></li>
+<li>The DDx is the focal point! Your listener should be able to anticipate where you are going (not like a mystery novel), hence you should frame what you say around your DDx
+<ul class="org-ul">
+<li>When reporting this at the end, the following order can be taken as a guide
+<ol class="org-ol">
+<li>Most likely or imminent
+<ol class="org-ol">
+<li>High probability, high risk</li>
+<li>High probability, lower risk</li>
+</ol></li>
+<li>High risk: requires exclusion (i.e. the &ldquo;deadly&rdquo; box in the matrix)</li>
+<li>High risk: already excluded (i.e. stuff you can consider ruled out in that box based on what you&rsquo;ve gathered)</li>
+<li>Low risk, low probability</li>
+</ol></li>
+</ul></li>
+<li>Consider deadly &ldquo;do not miss&rdquo; stuff early!
+<ul class="org-ul">
+<li>The EMRA one mentions &ldquo;high probability&rdquo; and &ldquo;high risk&rdquo; as your main categories but I think the FlippedEM does it better by elaborating the &ldquo;diagnostic matrix&rdquo;</li>
+</ul></li>
+<li>Don&rsquo;t just randomly present pain as SOCRATES because this makes it seems like you haven&rsquo;t really thought about it. Instead, try to frame it in terms of suggestive disease pictures
+<ul class="org-ul">
+<li>e.g. ACS = exertional, CP, relieved by rest/GTN</li>
+<li>e.g. appendicitis = migratory umbi-&gt;RLQ pain, anorexia, fever, nausea</li>
+</ul></li>
+<li>As mentioned above under <a href="#org394bc23">Knowing that, how should you structure your verbal presentation?</a>, there&rsquo;s no separate sections for PMHx, FHx, SHx, ROS in your presentation because in the ED it&rsquo;s better to structure it as an &ldquo;integrated historical narrative&rdquo;.
+<ul class="org-ul">
+<li>If they have pertinent PMHx it should be included in your one-liner or part of the history.</li>
+</ul></li>
+<li>For an example of what a VERY GOOD presentation looks like and why, see the <a href="https://www.youtube.com/watch?v=ztqn5Br44UQ&amp;t=481s">EMRA video from 8:01 onwards</a></li>
+<li>There may be practice variation about whether you represent your meds list in total or go over them with your boss at the EHR
+<ul class="org-ul">
+<li>I&rsquo;ve been bitten before about meds even when they&rsquo;re <i>right</i>, so it&rsquo;s probably best if you go over them with your boss and possibly the ED pharmacist at the computer (esp if you have a shit system that doesn&rsquo;t do automatic substitutions like StV&rsquo;s)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org586aa6d" class="outline-4">
+<h4 id="org586aa6d"><span class="section-number-4">1.3.4.</span> Consults</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li>Unlike a ward consult they&rsquo;re much MORE likely to get pissed off at you if you do it badly, SO DO IT RIGHT</li>
+<li>The <a href="https://youtube.com/watch?v=YHCRluo6MM4">EMRA video</a> uses 5C, which can be thought of as a better version of ISBAR
+<dl class="org-dl">
+<dt>Contact</dt><dd>introduce self, state name/service/role</dd>
+<dt>Communicate</dt><dd>pt info, dx confirmed/suspected, brief synopsis, interventions</dd>
+<dt>Core Question</dt><dd>why are you calling? adm/surg intervention/procedure/recommendations - as a 1-liner. time-criticality?</dd>
+<dt>Collaborate</dt><dd>questions they have? additional information they need? if it&rsquo;s a procedure, anything we should get ready at the bedside?</dd>
+<dt>Close the loop</dt><dd>review the actions they have proposed and thank them for their time</dd>
+</dl></li>
+<li>Some tips based on <a href="https://youtube.com/watch?v=YHCRluo6MM4">EMRA&rsquo;s examples</a>
+<ul class="org-ul">
+<li>A consult isn&rsquo;t a patient presentation. You&rsquo;re trying to request help on a specific thing here!
+<ul class="org-ul">
+<li>Therefore, LEAD WITH THE QUESTION</li>
+</ul></li>
+<li>Keep the clinical information RELEVANT TO THEM, SPEAK THEIR LANGUAGE
+<ul class="org-ul">
+<li>e.g. consulting gen surg -&gt; inflam markers? fever? CT results? diet?</li>
+</ul></li>
+<li>In cases of disagreement it can help to get everyone together at the bedside to ensure we&rsquo;re all on the same page</li>
+<li>Close the loop to avoid errors esp in case of actions recommended</li>
+<li>PROFESSIONALISM AT ALL TIMES, WE&rsquo;RE A TEAM YO</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5316ea9" class="outline-3">
+<h3 id="org5316ea9"><span class="section-number-3">1.4.</span> Being keen</h3>
+<div class="outline-text-3" id="text-1-4">
+<ol class="org-ol">
+<li>Resus
+<ul class="org-ul">
+<li>Try to get involved whenever you can.</li>
+<li>Can be as simple as helping with a log roll or siting a PIVC and getting some blood</li>
+</ul></li>
+<li>Formal teaching and education opportunities
+<ul class="org-ul">
+<li>Go to JMO teaching; if you don&rsquo;t bad things can happen</li>
+</ul></li>
+<li>Follow-up
+<ul class="org-ul">
+<li>Consultants will encourage you to do this too, but it might be a good idea to check on what happened to your patients before or after your shift</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org6f29b7b" class="outline-3">
+<h3 id="org6f29b7b"><span class="section-number-3">1.5.</span> Cautions</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Triage
+<ul class="org-ul">
+<li>It&rsquo;s really just a guide, if they get worse, you might need to see them sooner</li>
+</ul></li>
+<li>Cherry picking
+<ul class="org-ul">
+<li>Don&rsquo;t do it!</li>
+</ul></li>
+<li>Personal safety considerations
+<ul class="org-ul">
+<li>Know your PPE rules</li>
+<li>Exposed? Notify a senior immediately</li>
+<li>HAND HYGEINE</li>
+</ul></li>
+<li>Problematic patient behaviour
+<ul class="org-ul">
+<li>Carry a duress alarm</li>
+<li>If they&rsquo;re aggro or behavioural it should be on record</li>
+<li>Exercise all the right precautions</li>
+<li>Err on the side of caution - ask for advice if concerned</li>
+</ul></li>
+<li>Documentation
+<ul class="org-ul">
+<li>Especially in the ED, because patients don&rsquo;t have loyalty, and there are potential legal consequences, accurate and complete documentation is VITAL</li>
+</ul></li>
+<li>Night shifts
+<ul class="org-ul">
+<li>Many services won&rsquo;t be available e.g. imaging</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4db4d63" class="outline-2">
+<h2 id="org4db4d63"><span class="section-number-2">2.</span> Common complaints</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+THIS SECTION ISN&rsquo;T FINISHED!
+</p>
+</div>
+<div id="outline-container-orge653ba3" class="outline-3">
+<h3 id="orge653ba3"><span class="section-number-3">2.1.</span> Chest pain, dyspnoea and haemoptysis</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>For whatever reason, this is all grouped together under ONE chapter in the Fulde book
+<ul class="org-ul">
+<li>All 3 can be in some sense related, so&#x2026;</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org026ba0e" class="outline-4">
+<h4 id="org026ba0e"><span class="section-number-4">2.1.1.</span> Chest pain</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li>DDx
+<ul class="org-ul">
+<li>Most important potential killer causes to consider (no particular order but MI is definitely no. 1)
+<ul class="org-ul">
+<li>MI/ACS
+<ul class="org-ul">
+<li>Deep, visceral pain in anterior chest but poorly localised</li>
+<li>Characterised as heaviness/weight, constriction, dull ache</li>
+<li>Gradual onset, peaks over a few minutes, lasts at least a few minutes</li>
+<li>Prefer to lie still</li>
+<li>Not exacerbated by respiratory cycle, posture or food intake</li>
+<li>Classical radiation patterns: to neck, jaw or arms (L&gt;R)</li>
+<li>Autonomic associations e.g. sweating, nausea, anxiety</li>
+</ul></li>
+<li>PE</li>
+<li>Aortic dissection
+<ul class="org-ul">
+<li>Rare but important</li>
+<li>Typically abrupt onset, peaks immediately</li>
+<li>Radiates to back (unusual in MI)</li>
+<li>Possible &ldquo;tearing&rdquo; quality, very severe, requiring lots of narcotics</li>
+<li>Severe pain, nonspecific ECG, shock and hypertension is a strong clue</li>
+</ul></li>
+<li>Tension pneumothorax</li>
+<li>Ruptured oesophagus
+<ul class="org-ul">
+<li>Severe anterior chest pain post-vomiting is characteristic of Boerhaave&rsquo;s syndrome</li>
+<li>If you have vomiting in MI it usually follows the <i>chest pain</i> rather than preceding it</li>
+</ul></li>
+<li>Pneumonia</li>
+</ul></li>
+<li>Not killer but still worth considering
+<ul class="org-ul">
+<li>Chest wall
+<ul class="org-ul">
+<li>Most common in OPD</li>
+<li>Well localised, jabbing or stabbing, for a fraction of a second or hours/days at a time</li>
+<li>Pain from &ldquo;outside&rdquo; the chest with a lancinating or stabbing quality is less likely to be MI</li>
+<li>However, chest wall tenderness is common, and pain reproducible from pressure is nonspecific and doesn&rsquo;t itself rule out MI</li>
+</ul></li>
+<li>GORD
+<ul class="org-ul">
+<li>Careful! Response to antacids (or the &ldquo;GI cocktail/pink lady&rdquo;) doesn&rsquo;t rule out cardiac chest pain (because oddly, MI can get better with antacids too)</li>
+</ul></li>
+<li>Oesophageal spasm</li>
+<li>Pericarditis
+<ul class="org-ul">
+<li>Can occur at any age</li>
+<li>Pleuritic character, postural onset</li>
+</ul></li>
+<li>MVP</li>
+<li>VZV</li>
+</ul></li>
+</ul></li>
+<li>Initial approach
+<ul class="org-ul">
+<li>Stabilisation
+<ul class="org-ul">
+<li>Triage to urgent care, recognise any important haemodynamic abnormalities</li>
+<li>MONA BASH stuff, in the order you might actually give it
+<ol class="org-ol">
+<li>HFO2 +/- GTN</li>
+<li>Aspirin 300mg PO stat early</li>
+</ol></li>
+<li>Cardiac monitor + IV access</li>
+<li>Bloods incl. troponin</li>
+<li>ECG</li>
+</ul></li>
+<li>History</li>
+<li>Examination
+<ul class="org-ul">
+<li>A-Es
+<dl class="org-dl">
+<dt>B</dt><dd>RDS</dd>
+<dt>C</dt><dd>pallor, peripheral hypoperfusion</dd>
+<dt>D</dt><dd>GCS</dd>
+<dt>E</dt><dd>diaphoresis</dd>
+</dl></li>
+<li>Cardiac
+<ul class="org-ul">
+<li>Signs of HF
+<ul class="org-ul">
+<li>JVD</li>
+<li>S3</li>
+</ul></li>
+<li>Peripheral pulses
+<ul class="org-ul">
+<li>if ?dissection -&gt; BP in both arms
+<ul class="org-ul">
+<li>Possible if BP diff &gt; 10mmHg</li>
+</ul></li>
+</ul></li>
+<li>Praecordium i.e. ?HSDNM
+<ul class="org-ul">
+<li>Note esp MR coincident with pain onset</li>
+<li>Also any pericardial rubs, but it may be transient or positional</li>
+</ul></li>
+</ul></li>
+<li>Respiratory
+<ul class="org-ul">
+<li>Tracheal deviation (for tension PTX)</li>
+<li>Air entry symmetry, breath sounds</li>
+<li>NB: chest wall tenderness is nonspecific</li>
+</ul></li>
+<li>Abdomen (should be done routinely)</li>
+<li>Limbs, PV
+<ul class="org-ul">
+<li>Peripheral oedema</li>
+<li>Pulses</li>
+<li>?DVT</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Investigations
+<ul class="org-ul">
+<li>ECG
+<ul class="org-ul">
+<li>The book has its own chapter on ECG interpretation</li>
+</ul></li>
+<li>Enzymes and markers i.e. serial troponins</li>
+<li>CXR</li>
+<li>Bedside ECHO
+<ul class="org-ul">
+<li>Good for detecting wall motion issues in MI</li>
+<li>TOE is superior for pericardial effusion, aortic dilation or dissection</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+<div id="org463184c" class="figure">
+<p><img src="em.org_20220918_111332_AnXDIS.png" alt="em.org_20220918_111332_AnXDIS.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Approach to chest pain</p>
+</div>
+
+<table id="orgf549821" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> Braunwald classification of unstable angina</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Class</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-right">1y risk of AMI/death (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">I</td>
+<td class="org-left">New onset exertional angina; angina with less effort; no rest pain</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">II</td>
+<td class="org-left">Angina at rest in last month, but no pain last 48h</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">III</td>
+<td class="org-left">Angina at rest last 48h</td>
+<td class="org-right">11</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Box 6.2: Risk stratification of unstable angina
+</p>
+<!-- This HTML table template is generated by emacs 27.2 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;High&nbsp;risk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      -&nbsp;Prolonged&nbsp;and&nbsp;ongoing&nbsp;pain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;ECG&nbsp;changes,&nbsp;esp&nbsp;dynamic&nbsp;ST&nbsp;depression&nbsp;&nbsp;&nbsp;<br />
+      changes&nbsp;varying&nbsp;with&nbsp;pain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;Deep&nbsp;TWI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;Elevated&nbsp;troponin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;Ass'd&nbsp;syncope,&nbsp;LVF,&nbsp;MR&nbsp;or&nbsp;gallop&nbsp;rhythm&nbsp;&nbsp;<br />
+      -&nbsp;HD&nbsp;instability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;Intermediate&nbsp;risk&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      -&nbsp;Prolonged&nbsp;pain&nbsp;now&nbsp;resolved&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;New-onset&nbsp;angina&nbsp;with&nbsp;ADL&nbsp;limitation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;>65yo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;PMHx&nbsp;MI&nbsp;or&nbsp;revascularisation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;ECG&nbsp;normal,&nbsp;or&nbsp;old&nbsp;Q&nbsp;waves,&nbsp;or&nbsp;minor&nbsp;ST/T<br />
+      changes&nbsp;only&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;Low&nbsp;risk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td align="left" valign="top">
+      -&nbsp;Angina&nbsp;of&nbsp;increased&nbsp;frequency,&nbsp;severity&nbsp;&nbsp;<br />
+      or&nbsp;lower&nbsp;threshold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;New-onset&nbsp;angina&nbsp;beginning&nbsp;>2w&nbsp;before&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      presentation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;Normal&nbsp;ECG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;Negative&nbsp;troponin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      -&nbsp;No&nbsp;high&nbsp;or&nbsp;intermediate&nbsp;risk&nbsp;features&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<div id="outline-container-org501af65" class="outline-4">
+<h4 id="org501af65"><span class="section-number-4">2.1.2.</span> Dyspnoea</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>History
+<ul class="org-ul">
+<li>Prior cardiorespiratory disease</li>
+<li>Previous best exercise capacity</li>
+<li>PND (seen in asthma and LVF)</li>
+<li>Orthopnoea (more specific for LVF)</li>
+<li>Cough and sputum production
+<ul class="org-ul">
+<li>Fever? URTI?</li>
+</ul></li>
+<li>Peripheral oedema</li>
+<li>Atopic illness</li>
+<li>Medications esp bronchodilators</li>
+<li>DVT risk factors</li>
+</ul></li>
+<li>Examination
+<ol class="org-ol">
+<li>General appearance</li>
+<li>Stridor</li>
+<li>Vitals esp RR, HR, SpO2</li>
+<li>CV exam</li>
+<li>Resp exam</li>
+</ol></li>
+<li>CXR</li>
+<li>Other tests
+<ul class="org-ul">
+<li>ABG: all dyspnoeic cases should get it</li>
+<li>ECG</li>
+<li>Spiro: if they can cooperate</li>
+<li>D-dimer: if indicated by Wells</li>
+<li>CTPA or V/Q scan
+<ul class="org-ul">
+<li>According to UW2CK V/Q is for the renally impaired, CTPA is used in the general case</li>
+<li>There may also be hospital policy related issues</li>
+</ul></li>
+<li>ECHO
+<ul class="org-ul">
+<li>If you&rsquo;re suspecting pericardial or valvular issues</li>
+</ul></li>
+<li>Other blood tests e.g. FBC</li>
+</ul></li>
+<li>Disposition - depends on underlying cause</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org36d1770" class="outline-4">
+<h4 id="org36d1770"><span class="section-number-4">2.1.3.</span> Haemoptysis</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>Causes to consider
+<ul class="org-ul">
+<li>Cancer
+<ul class="org-ul">
+<li>Doesn&rsquo;t tend to cause massive bleeds</li>
+</ul></li>
+<li>Bronchiectasis
+<ul class="org-ul">
+<li>Can cause massive bleeds</li>
+</ul></li>
+<li>Infections</li>
+<li>Vascular disorders e.g. PE, MS, AVMs, aneurysms</li>
+<li>Vasculitides e.g. SLE, Goodpasture&rsquo;s, Wegener&rsquo;s, etc.</li>
+<li>Iatrogenic</li>
+<li>Coagulopathy</li>
+<li>Trauma</li>
+</ul></li>
+<li>Stabilisation
+<ol class="org-ol">
+<li>A-E esp A, B</li>
+<li>ABG, FiO2</li>
+<li>IV access + fluids</li>
+<li>FBC, G+XM, Coags</li>
+<li>Urgent CXR</li>
+<li>If unilateral and affected side known, position with affected lung in dependent position</li>
+<li>Bronchoscopy</li>
+<li>CT scan</li>
+<li>Urgent consultation with CTS</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org74048d7" class="outline-4">
+<h4 id="org74048d7"><span class="section-number-4">2.1.4.</span> Acute pulmonary oedema (i.e. acute decompensation of heart failure)</h4>
+</div>
+<div id="outline-container-org7402c9d" class="outline-4">
+<h4 id="org7402c9d"><span class="section-number-4">2.1.5.</span> Venous thromboembolism (i.e. DVT/PE)</h4>
+</div>
+</div>
+<div id="outline-container-org60bfa72" class="outline-3">
+<h3 id="org60bfa72"><span class="section-number-3">2.2.</span> Abdominal pain and GI emergencies</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orga381352" class="outline-4">
+<h4 id="orga381352"><span class="section-number-4">2.2.1.</span> Acute abdomen</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li>Defined as an acute intra-abdominal condition causing severe pain and often requiring urgent surgery</li>
+<li>Causes may be:
+<ul class="org-ul">
+<li>Inflammatory e.g. appendicitis, diverticulitis, cholecystitis, perforated viscus</li>
+<li>Mechanical e.g. incarcerated hernia, band adhesions, volvulus, intussusception</li>
+<li>Vascular e.g. aortic aneurysm, mesenteric infarction</li>
+<li>Neoplastic e.g. colon carcinoma</li>
+<li>Congenital e.g. malrotation, congenital atresia/stenosis, Meckel&rsquo;s diverticulum</li>
+<li>Trauma</li>
+</ul></li>
+<li>Assessment
+<ul class="org-ul">
+<li>History
+<ul class="org-ul">
+<li>Pay attention to patient demographics
+<ul class="org-ul">
+<li>&gt;65yo = 2x as likely to require surgery</li>
+</ul></li>
+<li>Woman of childbearing age = pregnant until disproven. So consider gynae causes</li>
+<li>PMHx, PSHx, meds -&gt; what is it? operative candidate?</li>
+<li>Pain
+<ul class="org-ul">
+<li>When did it start?
+<ul class="org-ul">
+<li>Acute onset -&gt; vascular event, perforated viscus or renal colic</li>
+<li>Slower onset -&gt; inflammatory</li>
+</ul></li>
+<li>Location
+<ul class="org-ul">
+<li>Abdominal pain often localises to site of pathology</li>
+<li>Migration of pain?
+<ul class="org-ul">
+<li>Initial visceral pain is usually diffuse and midline</li>
+<li>Later somatic pain is more localised</li>
+</ul></li>
+</ul></li>
+<li>Character of pain
+<ul class="org-ul">
+<li>Intestinal colic = episodic and gripping with pain-free intervals</li>
+<li>Biliary and renal colic = constant pain which rises into a crescendo</li>
+<li>Constant severe pain = advanced or severe illness</li>
+</ul></li>
+<li>Associated symptoms
+<ul class="org-ul">
+<li>N+V after pain onset = surgical illness</li>
+<li>Constipation is nonspecific, but obstipation (no feces or flatus) suggests bowel obstruction</li>
+<li>Some other things point to specific dx&rsquo;s e.g. jaundice, haematuria, haematemesis, melena, diarrhoea</li>
+</ul></li>
+<li>NB: only 2/3 of acute surgical abdomens have a &rsquo;classical presentation&rsquo;. Children and the elderly are more likely to present atypically</li>
+</ul></li>
+</ul></li>
+<li>Examination
+<ul class="org-ul">
+<li>General appearance
+<ul class="org-ul">
+<li>Peritonitis = apprehensive and motionless</li>
+<li>Colicky = unsettled and agitated</li>
+<li>Advanced disease = pale, &rsquo;Hippocratic feces&rsquo;</li>
+<li>Make sure you check vitals and hydration</li>
+</ul></li>
+<li>Abdomen
+<ul class="org-ul">
+<li>Inspection
+<ul class="org-ul">
+<li>Abdomen shape: rigid, distended, scaphoid</li>
+<li>Visible peristalsis</li>
+<li>Operative scars</li>
+</ul></li>
+<li>Palpation
+<ul class="org-ul">
+<li>Diffuse/local tenderness</li>
+<li>Rebound
+<ul class="org-ul">
+<li>NB: isn&rsquo;t pathognomonic of peritonitis. False +ve in up to 1/4 pts, and is subjective. Cough impulse and percussion tenderness are more reliable signs.</li>
+</ul></li>
+<li>Guarding</li>
+</ul></li>
+<li>Percussion
+<ul class="org-ul">
+<li>Local peritonism</li>
+<li>Air</li>
+<li>Fluid (shifting dullness)</li>
+<li>Masses</li>
+<li>Organs
+<ul class="org-ul">
+<li>Loss of liver dullness occurs with pneumoperitoneum</li>
+</ul></li>
+</ul></li>
+<li>Auscultation (not sensitive)
+<ul class="org-ul">
+<li>Peristaltic noises coincident with colic = SBO</li>
+<li>Diffuse increased bowel sounds = gastroenteritis</li>
+<li>Silent abdomen, occasional tinkling sounds = late bowel obstruction, diffuse peritonitis</li>
+</ul></li>
+</ul></li>
+<li>Special signs
+<ul class="org-ul">
+<li>Murphy&rsquo;s sign = cholecystitis</li>
+<li>Rovsing&rsquo;s, psoas and obturator signs = appendicitis</li>
+<li>Cullen&rsquo;s and Gray-Turner&rsquo;s signs = pancreatitis</li>
+<li>Costovertebral angle tenderness = pyelonephritis or perinephric abscess</li>
+<li>DO NOT FORGET HERNIAL ORIFICES AND SCROTUM/TESTES</li>
+<li>PR examination for blood, faecal loading, local tenderness, masses, prostatomegaly</li>
+<li>Pelvic examination: in women, because you&rsquo;re often going to be wrong about them
+<ul class="org-ul">
+<li>Pelvic USG is better if available</li>
+</ul></li>
+</ul></li>
+<li>And of course, exclude potential nonabdominal pathologies of origin e.g. lung and lower thorax</li>
+</ul></li>
+<li>Investigations
+<ul class="org-ul">
+<li>Immediate
+<ul class="org-ul">
+<li>Urine: UA/MCS, urine hCG testing</li>
+<li>Blood: FBC, EUC, amylase/lipase (if indicated), gas (if appropriate), G+XM (if blood loss or operation likely)
+<ul class="org-ul">
+<li>Lipase &gt; amylase for pancreatitis</li>
+</ul></li>
+<li>Stool: FOBT</li>
+<li>Organ imaging: AXR (supine and erect), CXR (erect)</li>
+</ul></li>
+<li>Semi-urgent (with appropriate indications)
+<ul class="org-ul">
+<li>Blood: LFT, coags</li>
+<li>Stool: smear and culture for colitis, enteritis</li>
+<li>Organ imaging: abdominal US/CT, angio</li>
+<li>Endoscopy: proctosigmoidoscopy, panendoscopy</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="https://aci.health.nsw.gov.au/networks/eci/clinical/clinical-tools/abdominal-emergencies">&ldquo;Red flags&rdquo;</a>
+<ul class="org-ul">
+<li>History
+<ul class="org-ul">
+<li>&gt;65yo</li>
+<li>Immunocompromise</li>
+<li>Multiple comorbidities</li>
+<li>Prior abdominal surgery</li>
+<li>Cardiac disease (AF, IHD)</li>
+<li>Alcoholism</li>
+<li>Pregnancy</li>
+<li>Sudden onset, severe or constant pain</li>
+</ul></li>
+<li>Examination
+<ul class="org-ul">
+<li>Fever</li>
+<li>Tachycardia</li>
+<li>Hypotension</li>
+<li>Signs of shock</li>
+<li>Rigid abdomen</li>
+<li>Involuntary guarding</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org38d52d6" class="outline-3">
+<h3 id="org38d52d6"><span class="section-number-3">2.3.</span> Back pain</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><a href="https://aci.health.nsw.gov.au/networks/eci/clinical/clinical-tools/orthopaedic-and-musculoskeletal/acute-low-back-pain">Red flags</a>
+<ul class="org-ul">
+<li>History of cancer</li>
+<li>Unexplained weight loss</li>
+<li>Severe pain when supine and/or at night</li>
+<li>Age &lt;16 or &gt;50 years</li>
+<li>History of significant trauma</li>
+<li>Intravenous drug abuse</li>
+<li>Recent bacterial infection or fever</li>
+<li>Immune suppression (HIV, transplant, corticosteroids)</li>
+<li>Saddle anaesthesia</li>
+<li>Bladder dysfunction (urinary retention or incontinence)</li>
+<li>Bowel dysfunction (faecal incontinence)</li>
+<li>Neurological deficit in either or both lower limbs (especially if progressive)</li>
+<li>Persistent symptoms for &gt;4 weeks (recurrent presentations, worsening pain)</li>
+<li>Pregnancy</li>
+<li>Re-presentation</li>
+</ul></li>
+<li>Now what?
+<ul class="org-ul">
+<li>Back pain with any red flags
+<ul class="org-ul">
+<li>Urgent senior involvement</li>
+</ul></li>
+<li>Back pain + radiculopathy
+<ul class="org-ul">
+<li>Historical evidence of sciatic pain radiating to butt or leg, no neuro abnormalities -&gt; nerve root involvement</li>
+<li>Dermatomal distribution may reflect nerve routes involved</li>
+<li>The vast majority will experience symptomatic improvement or resolution w/i 1mo w/ appropriate analgesia and PT, but earlier or more frequent re-eval by GP or spinal surgeon is advised</li>
+</ul></li>
+<li>Non-specific MSK cause
+<ul class="org-ul">
+<li>&gt;85% pts coming to ED with low back pain will recover w/i 1mo with appropriate analgesia and PT</li>
+</ul></li>
+<li>Back pain from a nonspinal cause
+<ul class="org-ul">
+<li>Further subdivision
+<ul class="org-ul">
+<li>Requiring urgent attention - urgent senior involvement to expedite dx and mx</li>
+<li>Requiring acute attention - cf. &ldquo;Causes&rdquo;</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>
+Causes
+</p>
+<table id="orga7293ce" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 4:</span> Spinal and nonspinal causes of back pain. Those requiring urgent evaluation and senior involvement in <b>bold</b>.</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Spinal</th>
+<th scope="col" class="org-left">Non-spinal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Lumbar muscular strain/sprain</td>
+<td class="org-left"><b>Abdominal aortic aneurysm</b></td>
+</tr>
+
+<tr>
+<td class="org-left">Herniated nucleus pulposus</td>
+<td class="org-left">Pneumonia</td>
+</tr>
+
+<tr>
+<td class="org-left">Spinal stenosis/osteoarthritis</td>
+<td class="org-left">Connective tissue disease</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Lumbar spinal fracture</b></td>
+<td class="org-left">Shingles</td>
+</tr>
+
+<tr>
+<td class="org-left">Degenerative disc disease</td>
+<td class="org-left">Pelvic inflammatory disease</td>
+</tr>
+
+<tr>
+<td class="org-left">Facet joint arthropathy</td>
+<td class="org-left"><b>Prostatitis</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Infection: discitis, OM, epidural abscess</b></td>
+<td class="org-left">GI involvement: <b>pancreatitis</b>, cholecystitis, PUD</td>
+</tr>
+
+<tr>
+<td class="org-left">Congenital disease: severe kypho/scoliosis, transitional vertebrae</td>
+<td class="org-left">Renal involvement: renal colic, pyelonephritis, <b>perinephric abscess</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Malignancies</b></td>
+<td class="org-left">IBD</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Cauda equina syndrome</b></td>
+<td class="org-left"><b>Psoas abscess</b></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Epidural haematoma</b></td>
+<td class="org-left"><b>Sickle cell disease/crisis</b></td>
+</tr>
+
+<tr>
+<td class="org-left">Scheuermann disease (osteochondrosis)</td>
+<td class="org-left">Sacroiliac pain/pelvic pain</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Inflammatory arthritides</b> (often HLA-B27 associated)</td>
+<td class="org-left"><b>Infective endocarditis</b></td>
+</tr>
+</tbody>
+</table></li>
+<li>Investigations
+<ul class="org-ul">
+<li>Needs urgent MRI
+<ul class="org-ul">
+<li>Major risk factors for cancer: hx active Ca + back pain</li>
+<li>Risk factors for or signs of cauda equina syndrome: urinary retention, faecal incontinence, saddle anaesthesia</li>
+<li>Risk factors for spinal infection: fever, IVDU, recent infection, recent invasive procedure, high ESR/CRP/WCC + high clinical suspicion in at-risk pt (immunocompromise, steroids)</li>
+<li>Severe neurological deficits: progressive motor weakness, motor deficits at multiple neurological levels</li>
+</ul></li>
+<li>CT lumbar spine
+<ul class="org-ul">
+<li>Suspected vertebral fracture with significant trauma</li>
+</ul></li>
+<li>XR lumbar spine
+<ul class="org-ul">
+<li>Vertebral fracture suspected in osteoporotic bone with minimal (or no) trauma or female</li>
+</ul></li>
+<li>Deferred imaging until after trial of therapy
+<ul class="org-ul">
+<li>Risk factors for or signs of ankylosing spondylitis</li>
+<li>Minor risk factors for cancer</li>
+<li>Risk factors or symptoms of spinal stenosis</li>
+<li>Signs and symptoms of radiculopathy</li>
+<li>Persistent back pain after 1 year of therapy</li>
+</ul></li>
+<li>No imaging
+<ul class="org-ul">
+<li>Previous imaging with no change in clinical status</li>
+<li>No criteria for immediate imaging, &lt;1mo therapy</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org050b548" class="outline-3">
+<h3 id="org050b548"><span class="section-number-3">2.4.</span> Fractures</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Bones are my pet hate, so as they advise on S2D, it&rsquo;s best to take a little bit of time to learn about it</li>
+</ul>
+</div>
+<div id="outline-container-org0bf4b85" class="outline-4">
+<h4 id="org0bf4b85"><span class="section-number-4">2.4.1.</span> General principles</h4>
+<div class="outline-text-4" id="text-2-4-1">
+</div>
+<ol class="org-ol">
+<li><a id="org8826d1a"></a>Resus and detection of other injuries<br />
+<div class="outline-text-5" id="text-2-4-1-1">
+<ul class="org-ul">
+<li>Since they tend to occur in polytraumas, identifying and fixing things in the primary survey is usually more important than the ortho injury itself which you&rsquo;d get around to in the secondary survey</li>
+<li>The exceptions are:
+<ul class="org-ul">
+<li>Major pelvic fractures (can cause life-threatening haemorrhages)</li>
+<li>Femoral shaft fractures (can cause 1-2L of blood loss)</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="orgc8d4c06"></a>Analgesia<br />
+<div class="outline-text-5" id="text-2-4-1-2">
+<ul class="org-ul">
+<li>They&rsquo;ll be in severe pain so appropriate initial analgesics may include:
+<ul class="org-ul">
+<li>Inhaled NO or MeOFlurane or intranasal fentanyl</li>
+<li>IV morphine</li>
+<li>Oxycodone 5-10mg PO</li>
+<li>Compound PO analgesia (e.g. paracetamol+codeine) - note that efficacy is unproven</li>
+<li>Immobilise with plaster slab, traction splint, Zimmer splint, sling, etc.</li>
+<li>Regional anaesthesia (e.g. femoral nerve block for femoral shaft fracture)</li>
+</ul></li>
+</ul>
+</div>
+</li>
+<li><a id="org5329600"></a>Detection of associated injuries<br />
+<div class="outline-text-5" id="text-2-4-1-3">
+<ul class="org-ul">
+<li>Just learn your anatomy, watch some Acland&rsquo;s</li>
+</ul>
+</div>
+</li>
+<li><a id="org0b8a879"></a>Early fracture reduction<br /></li>
+<li><a id="orgb1d1f89"></a>Early dislocation reduction<br /></li>
+<li><a id="org649f503"></a>Procedural sedation for reduction of fractures and dislocations in the ED<br /></li>
+<li><a id="org83b87ad"></a>Appropriate consultation and referral<br /></li>
+<li><a id="org21b830a"></a>Hand and wrist injuries<br /></li>
+</ol>
+</div>
+<div id="outline-container-org4ec06d4" class="outline-4">
+<h4 id="org4ec06d4"><span class="section-number-4">2.4.2.</span> UL</h4>
+<div class="outline-text-4" id="text-2-4-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgc8e797d"></a>Clavicle<br /></li>
+<li><a id="org9a3b991"></a>AC subluxation/dislocation<br /></li>
+<li><a id="orgb68cf69"></a>Sternoclavicular subluxation/dislocation<br /></li>
+<li><a id="org208a614"></a>Glenohumeral dislocation, anterior<br /></li>
+<li><a id="org5b02af3"></a>Glenohumeral dislocation, posterior<br /></li>
+<li><a id="org209e337"></a>Humeral head and neck fractures<br /></li>
+<li><a id="orgcab5d54"></a>Humeral shaft fractures<br /></li>
+<li><a id="org9d616ad"></a>Supracondylar humeral fractures<br /></li>
+<li><a id="org90389b1"></a>Elbow dislocation<br /></li>
+<li><a id="org9d3963d"></a>Olecranon fractures<br /></li>
+<li><a id="orgba16104"></a>Pulled elbow<br /></li>
+<li><a id="org22f8815"></a>Radial head and neck fractures<br /></li>
+<li><a id="org8012772"></a>Radius and ulna shaft fracture<br /></li>
+<li><a id="orge67b6c6"></a>Distal radius and ulna fractures<br />
+<ol class="org-ol">
+<li><a id="org607fb14"></a>Colles&rsquo;<br /></li>
+<li><a id="org7e255b8"></a>Smith&rsquo;s<br /></li>
+<li><a id="orgf9b3eec"></a>Barton&rsquo;s<br /></li>
+<li><a id="org758bc31"></a>Scaphoid<br /></li>
+<li><a id="org59134be"></a>Gamekeeper&rsquo;s/skier&rsquo;s thumb<br /></li>
+<li><a id="org0e9c9fa"></a>MC5<br /></li>
+</ol>
+</li>
+<li><a id="orgc5cfe0a"></a>MC and P fractures<br /></li>
+<li><a id="org587365a"></a>IP and MCP dislocations<br /></li>
+<li><a id="orgc3c5315"></a>Mallet finger<br /></li>
+<li><a id="orgedc8bca"></a>Butonniere deformity<br /></li>
+<li><a id="orgfda1c38"></a>Digital nerve injury<br /></li>
+<li><a id="org4b683b5"></a>Tendon injuries<br /></li>
+</ol>
+</div>
+<div id="outline-container-org438ab77" class="outline-4">
+<h4 id="org438ab77"><span class="section-number-4">2.4.3.</span> Pelvis</h4>
+<div class="outline-text-4" id="text-2-4-3">
+</div>
+<ol class="org-ol">
+<li><a id="org9d7c5db"></a>In the elderly<br /></li>
+<li><a id="orgd627866"></a>Pelvic avulsion fractures<br /></li>
+<li><a id="org4cae6d9"></a>Major pelvic fractures<br /></li>
+</ol>
+</div>
+<div id="outline-container-org177a60f" class="outline-4">
+<h4 id="org177a60f"><span class="section-number-4">2.4.4.</span> LL</h4>
+<div class="outline-text-4" id="text-2-4-4">
+</div>
+<ol class="org-ol">
+<li><a id="org6b888f8"></a>Femoral neck<br /></li>
+<li><a id="org85cdc9a"></a>Hip joint dislocation<br /></li>
+<li><a id="orgc4900b0"></a>Femoral shaft fractures<br /></li>
+<li><a id="org948af4d"></a>Distal femoral fractures<br /></li>
+<li><a id="org7d5b2dc"></a>Rupture of quadriceps tendon<br /></li>
+<li><a id="org5f9e8a0"></a>Patellar fractures<br /></li>
+<li><a id="orgaf90473"></a>Patellar dislocation<br /></li>
+<li><a id="orgfc931b6"></a>True knee dislocation<br /></li>
+<li><a id="org528b8e3"></a>Tibial plateau fracture<br /></li>
+<li><a id="org4fbc927"></a>Acute knee pain<br /></li>
+<li><a id="org816730f"></a>Traumatic knee pain<br /></li>
+<li><a id="orgc6d4706"></a>Non-traumatic knee pain<br /></li>
+<li><a id="org2e7ec29"></a>Tibial and fibular shaft fractures<br /></li>
+<li><a id="org5bc4dc5"></a>Isolated fibular fractures<br /></li>
+<li><a id="org3e81eda"></a>Ankle ligament injuries<br /></li>
+<li><a id="org2d9a07b"></a>Ankle dislocation<br /></li>
+<li><a id="org043be12"></a>Ankle fractures<br /></li>
+<li><a id="org20cf40c"></a>Achilles tendon rupture<br /></li>
+<li><a id="org84ae6e1"></a>Talus fracture<br /></li>
+<li><a id="orgd48a9b5"></a>Calcaneus fracture<br /></li>
+<li><a id="orgea6ebee"></a>Major fractures/dislocations of the foot<br />
+<ol class="org-ol">
+<li><a id="org6d551bd"></a>Subtarsal<br /></li>
+<li><a id="org393f1f5"></a>Chopart<br /></li>
+<li><a id="orgb4e6b1b"></a>Lisfranc<br /></li>
+</ol>
+</li>
+<li><a id="orgbb4aff9"></a>Misc MT injuries<br />
+<ol class="org-ol">
+<li><a id="org4b89e08"></a>MT5<br /></li>
+<li><a id="orge3318a3"></a>Stress fracture<br /></li>
+</ol>
+</li>
+<li><a id="org58536b2"></a>Phalangeal fractures<br /></li>
+<li><a id="org89ade37"></a>IP and MTP dislocations<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org1701831" class="outline-3">
+<h3 id="org1701831"><span class="section-number-3">2.5.</span> Pain management in the ED</h3>
+</div>
+</div>
+<div id="outline-container-orgd027ffe" class="outline-2">
+<h2 id="orgd027ffe"><span class="section-number-2">3.</span> Reading list</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><a href="https://www.amazon.com/Emergency-Medicine-Gordian-Fulde-FRACS/dp/0729541460">EM Principles of Practice, Fulde and Fulde</a>
+<ul class="org-ul">
+<li>Best for StV&rsquo;s - the consultants each have their own chapter in here</li>
+<li>Not an objectively great book</li>
+</ul></li>
+<li><a href="https://aci.health.nsw.gov.au/networks/eci/clinical/clinical-tools">ACI Clinical Tools</a>
+<ul class="org-ul">
+<li>Contains many useful lists of &ldquo;red flags&rdquo; you may get pimped on</li>
+</ul></li>
+<li><a href="http://lifeinthefastlane.com/">LitFL</a>
+<ul class="org-ul">
+<li>Best for Australian EDs</li>
+</ul></li>
+<li><a href="http://embasic.org/">EMBasic</a>
+<ul class="org-ul">
+<li>American source, but good podcast for getting an easy low-down on approaching common ED cases</li>
+<li>Best for listening on the train, in the car, when doing the dishes, etc.</li>
+</ul></li>
+<li><a href="https://accessmedicine.mhmedical.com/book.aspx?bookID=2715">S2D</a>
+<ul class="org-ul">
+<li>Comprehensive analytical approach to DDx and workup, good for aspiring IM physicians</li>
+<li>Also has a podcast where they talk about cases for each of the chapters</li>
+<li>Caution should be taken insofar as Americans have a more diagnostics focused approach to workup whereas in the Commonwealth we tend to focus more on history and examination</li>
+</ul></li>
+<li>Oxford EM Handbook
+<ul class="org-ul">
+<li>The Oxford Handbook series are generally preferred in Commonwealth countries</li>
+<li>This one, and the good ol&rsquo; &ldquo;Cheese and Onion&rdquo; (Oxford Clinical Medicine Handbook) were recommended to me by Jess Green herself</li>
+</ul></li>
+<li>UWorld for USMLE Step 2 CK
+<ul class="org-ul">
+<li>Perhaps the most approachable source, has the best diagrams and great questions/cases</li>
+<li>Not strictly EM, covers all of medicine</li>
+<li>There are also a lot of notes floating around for it</li>
+</ul></li>
+<li>AMBOSS
+<ul class="org-ul">
+<li>Good as a general resource, very approachable and detailed</li>
+</ul></li>
+<li><a href="https://resus.me/">Resus.me</a>
+<ul class="org-ul">
+<li>EM evidence summaries by an Australian ED consultant</li>
+</ul></li>
+<li><a href="https://fullcodemedical.com/">Full Code</a> (mobile game)
+<ul class="org-ul">
+<li>Designed based on an American ED so has some differences from Oz, but makes studying for ED rotation or exams a whole lot more fun tbh</li>
+<li>Graded, consultant quality, objective feedback on each case you do!</li>
+</ul></li>
+<li><a href="https://flippedemclassroom.wordpress.com/">Flipped EM classroom</a>
+<ul class="org-ul">
+<li>I really like their videos</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Christopher Chen</p>
+<p class="date">Created: 2022-09-18 Sun 22:02</p>
+</div>
+</body>
+</html>
